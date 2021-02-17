@@ -19,9 +19,15 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 
+from store import views
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    url(r'^$', views.index),
+    # url(r'^store/', include('store.urls')),
+    url(r'^accounts/', include('accounts.urls')),
+    # url(r'^admin/', admin.site.urls)
 ]
+
 
 if settings.DEBUG:
     import debug_toolbar
